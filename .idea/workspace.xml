@@ -5,70 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb5e4014-3a70-4a5e-b278-3d1151792af5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pcsrt_python.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/cli_input_params.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/block_params/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/block_params/block_params.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/block_params/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/centroid/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/centroid/centroid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/centroid/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/file/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/file/errors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/file/file.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/file/filetype.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/file/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/horizon/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/horizon/horizon.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/horizon/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/linke/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/linke/linke.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/linke/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/time_range/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/time_range/parsers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/input_params/time_range/time_range.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud_params/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud_params/average_points.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud_params/get_cloud_params.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud_params/voxel_size.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/extent.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/read/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/read/las.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/read/reader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/write/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/write/las.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/write/ply.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_output/write/writeOutput.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pcsrt.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/calculate_solar_radiation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/illumination/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/illumination/get_rotated_voxel_key_pairs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/illumination/structs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/radiation_components/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/radiation_components/beam_component.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/radiation_components/diffuse_component.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/radiation_components/irradiance.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/radiation_components/structs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/sun_position/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/sun_position/get_sun_positions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radiation/sun_position/sunrise_sunset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/block_iterator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/build_normals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/build_voxel_grid.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/normal_from_points.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voxel/structs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
