@@ -10,7 +10,7 @@ setuptools.setup(
     author_email="nastyaenn@gmail.com",
     description=("A tool for modeling solar radiation & insolation "
                  "on point cloud data built in Python."),
-    url="https://github.com/amosnjenga/pcsrt_python_cli",
+    url="https://github.com/amosnjenga/pcsrt_python_cli.git",
     project_urls={
         "Bug Tracker": " ",
     },

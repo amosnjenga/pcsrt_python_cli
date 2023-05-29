@@ -6,6 +6,7 @@ class LasFileWriter:
     def __init__(self, output_file, cloud_params, reader):
         self.output_file = output_file
         self.cloud_params = cloud_params
+        self.input_reader_obj = reader.to_lasfile_object()
         self.input_file_header = reader.to_lasfile_object().header
 
     def write_point_las(self, point, irradiation, normal_vector):
@@ -40,6 +41,30 @@ class LasFileWriter:
                 vlr += struct.pack('<H', 10)
         return vlr
 
+    def calculate_offset(self,reader,offsets,scales):
+        initial_offsets = offsets
+        initial_scales = scales
+
+        min_x_scaled = min(reader.x)
+        min_X_unscaled = min(reader.X)
+        initial_x_offset = offsets[0]
+        initial_x_scale = scales[0]
+        offset_x = min_x_scaled - (min_X_unscaled * initial_x_scale)
+
+        min_y_scaled = min(reader.y)
+        min_Y_unscaled = min(reader.Y)
+        initial_y_offset = offsets[1]
+        initial_y_scale = scales[1]
+        offset_y = min_y_scaled - (min_Y_unscaled * initial_y_scale)
+
+        min_z_scaled = min(reader.z)
+        min_Z_unscaled = min(reader.Z)
+        initial_z_offset = offsets[2]
+        initial_z_scale = scales[2]
+        offset_z = min_z_scaled - (min_Z_unscaled * initial_z_scale)
+
+        return np.array([offset_x,offset_y,offset_z])
+
 
     def write_output_lasfile(self,point_array, normal_vector_array, extrabytes_array):
         point_array  = np.array(point_array)
@@ -60,8 +85,9 @@ class LasFileWriter:
         # 1. Create a new header
         header = laspy.LasHeader(point_format=2, version="1.4")
         header.add_extra_dims(extra_bytes_fields)
-        header.offsets = np.array([min_x,min_y,min_z])
-        header.scales = np.array([1, 1, 1])
+        header.offsets = self.calculate_offset(self.input_reader_obj, self.input_file_header.offsets,
+                                               self.input_file_header.scale)
+        header.scales = self.input_file_header.scale
 
         try:
             with laspy.open(self.output_file.path, mode="w", header=header) as writer:

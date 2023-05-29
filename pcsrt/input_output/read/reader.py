@@ -12,7 +12,8 @@ class Reader:
     def to_point_reader(self):
         if self.input_file_type == FileType.LAS:
             #return laspy.file.File(self.input_file.path, mode="r").points #laspy <2.00
-            return laspy.read(self.input_file.path).points.array
+            #return laspy.read(self.input_file.path).points.array
+            return laspy.read(self.input_file.path).xyz
         elif self.input_file_type == FileType.PLY:
             return PlyData.read(self.input_file.path)
         else:
