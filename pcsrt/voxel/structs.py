@@ -24,17 +24,24 @@ class Translation:
 
 class TranslatePoint:
     def translate(self, translation):
-        pass
+        self.x -= translation.x
+        self.y -= translation.y
+        self.z -= translation.z
 
     def translate_rev(self, translation):
-        pass
+        self.x += translation.x
+        self.y += translation.y
+        self.z += translation.z
 
 class TrimDecimals:
     def trim_decimals(self,n):
         coef = pow(10, n)
-        self.x = floor(self.x * coef + 0.5) / coef
-        self.y = floor(self.y * coef + 0.5) / coef
-        self.z = floor(self.z * coef + 0.5) / coef
+        #self.x = floor(self.x * coef + 0.5) / coef
+        #self.y = floor(self.y * coef + 0.5) / coef
+        #self.z = floor(self.z * coef + 0.5) / coef
+        self.x = floor(self.x * coef) / coef
+        self.y = floor(self.y * coef) / coef
+        self.z = floor(self.z * coef) / coef
 
 class PushPoint:
     def push_point(self, point):
@@ -50,6 +57,7 @@ class Point(GetCoords, IntoVoxelKey, TranslatePoint, TrimDecimals, IntoVoxel):
         self.y = y
         self.z = z
         self.overlap = overlap
+        super()
 
     def as_numpy_vec(self):
         return np.array([self.x, self.y, self.z])
@@ -88,9 +96,15 @@ class NormalVector:
         else:
             return NormalVector(na_vec[0], na_vec[1], na_vec[2])
 
-    def angle(self, vec):
-        return np.arccos(self.as_numpy_vec().dot(vec) / (np.linalg.norm(self.as_numpy_vec()) * np.linalg.norm(vec)))
+    #def angle(self, vec):
+        #return np.arccos(self.as_numpy_vec().dot(vec) / (np.linalg.norm(self.as_numpy_vec()) * np.linalg.norm(vec)))
+        #return np.angle(vec)
 
+    def angle(self,vec):
+        vector = np.array(vec)
+        norm = np.linalg.norm(vector)
+        _angle = np.arccos(vec[2] / norm)  # Calculate the angle of inclination
+        return _angle
     @staticmethod
     def upright():
         return NormalVector(0., 0., 1.)

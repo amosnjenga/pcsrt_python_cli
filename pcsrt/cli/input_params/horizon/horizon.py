@@ -1,4 +1,4 @@
-from math import pi
+from math import pi,degrees,floor
 
 class Horizon:
     def __init__(self, angle_step = 360,horizon_height=[0.], is_flat: bool = True):
@@ -7,8 +7,8 @@ class Horizon:
         self.is_flat = is_flat
 
     def is_visible(self, azimuth,altitude):
-        azimuth = azimuth * 180 / pi
-        altitude = altitude * 180 / pi
+        azimuth = degrees(azimuth)
+        altitude = degrees(altitude)
         angle_step = self.angle_step
         if self.is_flat:
             return True

@@ -10,6 +10,15 @@ def normal_from_points(points):
                           [p.x - centroid[0], p.y - centroid[1], p.z - centroid[2]])
         eigenvalues, eigenvectors = np.linalg.eig(C / n)
         idx = np.argmin(eigenvalues)
-        return list(eigenvectors[:, idx])
+        #return list(eigenvectors[:, idx])
+        normal_vector = eigenvectors[:, idx]
+
+
+        # The eigenvector corresponding to the largest eigenvalue is the normal vector
+        #normal_vector = eigenvectors[:, np.argmax(eigenvalues)]
+
+        # Normalize the normal vector
+        normal_vector = normal_vector / np.linalg.norm(normal_vector)
+        return normal_vector
     else:
         return None

@@ -46,9 +46,12 @@ class Block:
         self.bbox = (self.min_x, self.min_y, self.max_x, self.max_y)
 
         self.translation = Translation(
-            x=self.min_x // 1,
-            y=self.min_y // 1,
-            z=extent.min[2] // 1,
+            #x=self.min_x // 1,
+            x=int(self.min_x),
+            #y=self.min_y // 1,
+            y=int(self.min_x),
+            #z=extent.min[2] // 1,
+            z=int(extent.min[2])
         )
 
         if block_overlap > 0:

@@ -1,4 +1,3 @@
-
 from pcsrt.cli import FileType
 from .writeOutput import WriteOutput
 from .las import LasFileWriter
@@ -35,13 +34,16 @@ class Writer(WriteOutput):
             for (_, voxel) in voxel_grid.items():
                 irradiation = voxel.irradiation
 
+
                 for point in voxel.points:
                     if not point.overlap:
                         point.translate_rev(translation)
                         _point,_normal_vector,_extra_bytes = self.write_point_las(point, irradiation, voxel.normal_vector)
                         point_array.append([_point[0],_point[1],_point[2]])
                         normal_vector_array.append([_normal_vector[0],_normal_vector[1],_normal_vector[2]])
-                        extrabytes_array.append([_extra_bytes[0],_extra_bytes[1],_extra_bytes[2],_extra_bytes[3]])
+                        extrabytes_array.append(([irradiation.global_irradiance,irradiation.beam_component,irradiation.diffuse_component,irradiation.sun_hours]))
+
+
 
             return point_array,normal_vector_array,extrabytes_array
 
@@ -70,7 +72,6 @@ class Writer(WriteOutput):
 
     def write_output_plyfile(self,point_array):
         self.writer.write_output_plyfile(point_array)
-
 
 
 

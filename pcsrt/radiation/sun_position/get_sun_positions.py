@@ -1,8 +1,9 @@
 from pvlib.solarposition import get_solarposition
 from datetime import datetime, timedelta
 from math import radians, pi,cos,sin
+from scipy.spatial.transform import Rotation
 from numpy import identity
-
+import numpy as np
 
 from .sunrise_sunset import calc_sunrise_and_set
 
@@ -70,7 +71,7 @@ class SunPositionTimeRangeIterator:
             next_time = self.current_time + timedelta(minutes=int(self.step_mins))
 
             if next_time > sunset:
-                step_coef = (sunset - self.current_time).total_seconds() / 60.0
+                step_coef = (sunset - self.current_time).total_seconds() / 3600.0
                 sun_position = self.get_sun_position(step_coef)
 
                 self.previous_time = self.current_time
@@ -86,7 +87,7 @@ class SunPositionTimeRangeIterator:
                 return sun_position
 
             elif next_time > self.to:
-                step_coef = (self.to - self.current_time).total_seconds() / 60.0
+                step_coef = (self.to - self.current_time).total_seconds() / 3600.0
                 sun_position = self.get_sun_position(step_coef)
 
                 self.previous_time = self.current_time
@@ -94,7 +95,7 @@ class SunPositionTimeRangeIterator:
                 return sun_position
 
             else:
-                step_coef = (next_time - self.current_time).total_seconds() / 60.0
+                step_coef = (next_time - self.current_time).total_seconds() / 3600.0
                 sun_position = self.get_sun_position(step_coef)
 
                 self.previous_time = self.current_time
@@ -114,15 +115,18 @@ class SunPositionTimeRangeIterator:
 
         rotation_x = identity(3)
         rotation_x[1, 1] = cos(roll)
-        rotation_x[1, 2] = sin(roll)
-        rotation_x[2, 1] = -sin(roll)
+        rotation_x[1, 2] = -sin(roll)
+        rotation_x[2, 1] = sin(roll)
         rotation_x[2, 2] = cos(roll)
 
         rotation_z = identity(3)
         rotation_z[0, 0] = cos(yaw)
-        rotation_z[0, 1] = sin(yaw)
-        rotation_z[1, 0] = -sin(yaw)
+        rotation_z[0, 1] = -sin(yaw)
+        rotation_z[1, 0] = sin(yaw)
         rotation_z[1, 1] = cos(yaw)
+
+        #rotation_x = Rotation.from_euler('xyz', [roll, 0.0, 0.0], degrees=False).as_matrix()
+        #rotation_z = Rotation.from_euler('xyz', [0.0, 0.0, yaw], degrees=False).as_matrix()
 
         return SunPosition(rotation_x, rotation_z, azimuth, altitude, step_coef, time)
 

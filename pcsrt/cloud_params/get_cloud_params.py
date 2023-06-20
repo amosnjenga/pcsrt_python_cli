@@ -2,7 +2,6 @@ from ..common import Extent
 from .average_points import get_average_points_in_voxel
 from .voxel_size import get_voxel_size_and_average_points
 
-
 class CloudParams:
     def __init__(self, voxel_size,average_points_in_voxel,point_count, extent):
         self.voxel_size = voxel_size
@@ -26,7 +25,7 @@ def get_cloud_params(input_params,reader):
 
     if input_params.voxel_size is None and input_params.average_points_in_voxel is None:
         voxel_size, average_points_in_voxel = get_voxel_size_and_average_points(
-            reader,extent, block_params, input_params.desired_average_points_in_voxel,0.5,point_count)
+            reader,extent, block_params, input_params.desired_average_points_in_voxel,0.5)
     else:
         voxel_size = input_params.voxel_size
         average_points_in_voxel = get_average_points_in_voxel(reader,extent, block_params, voxel_size)

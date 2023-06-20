@@ -56,3 +56,4 @@ def search_for_adjacent_points(voxel_grid, key, max_depth, min_points):
             break
 
     return [Point(x / 1000, y / 1000, z / 1000,0) for x, y, z in point_set]
+
