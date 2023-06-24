@@ -1,4 +1,4 @@
-from math import exp, pow, sin
+from math import exp, pow, sin,degrees
 from pcsrt.common.constants import SOLAR_CONSTANT
 
 
